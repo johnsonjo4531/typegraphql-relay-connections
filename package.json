@@ -6,6 +6,8 @@
   "files": [
     "lib/**/*"
   ],
+  "repository": "https://github.com/johnsonjo4531/typegraphql-relay-connections/",
+  "homepage": "https://johnsonjo4531.github.io/typegraphql-relay-connections/",
   "devDependencies": {
     "@microsoft/api-extractor": "^7.19.4",
     "@types/graphql": "^14.5.0",
