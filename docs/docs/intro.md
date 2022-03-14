@@ -10,7 +10,7 @@ Note that though pagination types and utils are in this repo, the implementation
 
 ## Show Me Da Codez!! 💻
 
-The quickest possible example to show what this library does is the following. We create two GraphQL ObjectTypes using TypeGraphQL object types you can define that uses only what 
+The quickest possible example to show what this library does is the following. We create two GraphQL ObjectTypes using TypeGraphQL object types.
 
 ```ts
 import {
