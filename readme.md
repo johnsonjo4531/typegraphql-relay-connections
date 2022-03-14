@@ -4,14 +4,12 @@ This library provides a way to setup typings for [TypeGraphQL](https://typegraph
 
 Note that though pagination types and utils are in this repo, the implementation of the paging algorithms are up to the user this is on purpose and is meant to keep this library small and maintanable.
 
+## Documentation
+
+
+[Docs](https://johnsonjo4531.github.io/typegraphql-relay-connections/)
 
 ## Tutorial
-
-We'll start with some imports for this:
-
-```ts
-
-```
 
 First create an object-type through [type-graphql](https://typegraphql.com/)
 

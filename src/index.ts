@@ -199,8 +199,4 @@ export function ConnectionType<
 }
 
 export type { Cursor };
-export {
-  serializeCursor as toExternalCursor,
-  deserializeCursor as toInternalCursor,
-  CursorScalar,
-};
+export { serializeCursor, deserializeCursor, CursorScalar };

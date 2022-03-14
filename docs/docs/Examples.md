@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # TypeGraphQL Example 🏋️‍♂️
 
-See the [tests](./src/__tests__/index.spec.ts) and the [example](./src/examples/index.example.ts) folder for more examples.
+See the [tests](https://github.com/johnsonjo4531/typegraphql-relay-connections/tree/main/src/__tests__/index.spec.ts) and the [example](https://github.com/johnsonjo4531/typegraphql-relay-connections/tree/main/src/examples/index.example.ts) folder for more examples.
 
 Here's a full-fledged typegraphql server example ([codesandbox link](https://codesandbox.io/s/typegraphql-relay-connections-6wl8ck?file=/src/index.ts)):
 

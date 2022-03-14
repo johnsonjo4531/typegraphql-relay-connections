@@ -15,6 +15,7 @@ const config = {
   // favicon: 'img/favicon.ico',
   organizationName: 'johnsonjo4531', // Usually your GitHub org/user name.
   projectName: 'typegraphql-relay-connections', // Usually your repo name.
+  trailingSlash: false,
 
   presets: [
     [
