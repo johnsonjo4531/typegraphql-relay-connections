@@ -82,7 +82,7 @@ const cursorSerialize: GraphQLScalarSerializer<string> = (value) => {
   throw new Error("Invalid Cursor Input");
 };
 
-/** Desializes the Cursor or throws an error
+/** Deserializes the Cursor or throws an error
  *
  * @param ast
  * @returns
@@ -97,9 +97,9 @@ const cursorParseLiteral: GraphQLScalarLiteralParser<Cursor> | undefined = (
 };
 
 /** Parses to a Cursor from an ast node. */
-const cursorParseValue: GraphQLScalarValueParser<Cursor> = (ast) => {
-  if (isSerializableToCursor(ast)) {
-    return ast;
+const cursorParseValue: GraphQLScalarValueParser<Cursor> = (literal) => {
+  if (typeof literal === "string") {
+    return deserializeCursor(literal);
   }
   throw new Error("Invalid Cursor Input");
 };

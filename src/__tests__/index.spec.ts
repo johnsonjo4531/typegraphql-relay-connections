@@ -1,7 +1,6 @@
 import "reflect-metadata";
 import { buildSchema } from "type-graphql";
-import { ItemResolver } from "./data";
-import { Cursor, CursorScalar } from "..";
+import { ItemResolver } from "./data/index.data";
 import { gql } from "graphql-tag";
 import { execute } from "graphql";
 import { serializeCursor } from "../cursor";

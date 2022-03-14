@@ -1,7 +1,8 @@
 {
-  "name": "typegraphql-relay-connection",
+  "name": "typegraphql-relay-connections",
   "description": "TypeGraphQL Relay Connection Helpers",
   "license": "MIT",
+  "version": "1.0.0",
   "files": [
     "lib/**/*"
   ],

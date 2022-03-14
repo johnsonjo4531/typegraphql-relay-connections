@@ -8,3 +8,4 @@ schema.gql
 .editorconfig
 jestconfig.json
 yarn*
+docs/

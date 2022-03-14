@@ -7,12 +7,12 @@ import { Min } from "class-validator";
  * @public
  */
 @ArgsType()
-export class ForwardPaginationArgs {
+export class ForwardPaginationArgs<CursorType extends Cursor = Cursor> {
   @Field(() => CursorScalar, {
     nullable: true,
     description: "Grabs after the given cursor",
   })
-  after?: Cursor;
+  after?: CursorType;
 
   @Field(() => Number, {
     nullable: true,
@@ -25,12 +25,12 @@ export class ForwardPaginationArgs {
  * @public
  */
 @ArgsType()
-export class BackwardPaginationArgs {
+export class BackwardPaginationArgs<CursorType extends Cursor = Cursor> {
   @Field(() => CursorScalar, {
     nullable: true,
     description: "Grabs before the given cursor",
   })
-  before?: Cursor;
+  before?: CursorType;
 
   @Field(() => Number, {
     nullable: true,
@@ -51,7 +51,7 @@ export class BackwardPaginationArgs {
   Use it in conjunction with the \`ForwardPaginationArgs\` and \`BackwardPaginationArgs\`.
 `,
 })
-export class PageInfo {
+export class PageInfo<CursorType extends Cursor = Cursor> {
   @Field(() => Boolean, {
     description: "",
   })
@@ -61,10 +61,10 @@ export class PageInfo {
   hasPreviousPage!: boolean;
 
   @Field(() => CursorScalar, { nullable: true })
-  startCursor?: Cursor;
+  startCursor?: CursorType;
 
   @Field(() => CursorScalar, { nullable: true })
-  endCursor?: Cursor;
+  endCursor?: CursorType;
 
   @Field()
   @Min(0)
@@ -78,8 +78,11 @@ export type ClassReturnType<T extends ClassType<unknown>> = T extends ClassType<
 >
   ? J
   : never;
-export class RelayEdgeType<NodeType extends NodesType = NodesType> {
-  cursor!: Cursor;
+export class RelayEdgeType<
+  CursorType extends Cursor = Cursor,
+  NodeType extends NodesType = unknown
+> {
+  cursor!: CursorType;
   node!: NodeType;
 }
 
@@ -107,28 +110,32 @@ export class ItemEdge extends EdgeType(Item) {
 }
 ```
  */
-export function EdgeType<NodeType extends NodesType>(
+export function EdgeType<
+  CursorType extends Cursor = Cursor,
+  NodeType extends NodesType = unknown
+>(
   nodeType: ClassType<NodeType>
-): ClassType<RelayEdgeType<NodeType>> {
+): ClassType<RelayEdgeType<CursorType, NodeType>> {
   /** A relay edge graphql object types. Use this as a return value in your TypeGraphQL resolvers.
    */
   @ObjectType(`${nodeType.constructor.name}Edge`, { isAbstract: true })
-  class Edge extends RelayEdgeType<NodeType> {
+  class Edge extends RelayEdgeType<CursorType, NodeType> {
     @Field(() => nodeType)
     node!: NodeType;
 
     @Field(() => CursorScalar, {
       description: "Used in `before` and `after` args",
     })
-    cursor!: Cursor;
+    cursor!: CursorType;
   }
 
   return Edge;
 }
 
 export class RelayConnectionType<
-  EdgeType extends RelayEdgeType,
-  NodeType extends NodesType
+  CursorType extends Cursor = Cursor,
+  EdgeType extends RelayEdgeType<CursorType> = RelayEdgeType<CursorType>,
+  NodeType extends NodesType = unknown
 > {
   pageInfo!: PageInfo;
   edges!: EdgeType[];
@@ -162,19 +169,22 @@ export class ItemConnection extends ConnectionType({
 ```
 */
 export function ConnectionType<
-  EdgeType extends RelayEdgeType,
-  NodeType extends NodesType
+  CursorType extends Cursor = Cursor,
+  EdgeType extends RelayEdgeType<CursorType> = RelayEdgeType<CursorType>,
+  NodeType extends NodesType = unknown
 >({
   edge,
   node,
 }: {
   edge: ClassType<EdgeType>;
   node: ClassType<NodesType>;
-}): ClassType<RelayConnectionType<EdgeType, NodeType>> {
+}): ClassType<RelayConnectionType<CursorType, EdgeType, NodeType>> {
   @ObjectType(`${edge.constructor.name.replace("Edge", "")}Connection`, {
     isAbstract: true,
   })
-  class Connection implements RelayConnectionType<EdgeType, NodeType> {
+  class Connection
+    implements RelayConnectionType<CursorType, EdgeType, NodeType>
+  {
     @Field(() => PageInfo)
     pageInfo!: PageInfo;
 

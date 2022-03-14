@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 import "reflect-metadata";
 import {
   Args,
+  ArgsType,
   buildSchema,
   Field,
   InputType,
@@ -16,7 +17,8 @@ import {
   EdgeType,
   BackwardPaginationArgs,
 } from "../";
-import Cursor, { serializeCursor } from "../cursor";
+import { Cursor as InitCursor, serializeCursor } from "../cursor";
+import { edgesToReturn } from "./pagination-algo.example";
 
 @ObjectType()
 class Item {
@@ -24,32 +26,31 @@ class Item {
   id!: number;
 }
 
-@ObjectType()
-export class ItemEdge extends EdgeType(Item) {}
-
-@ObjectType()
-export class ItemConnection extends ConnectionType({
-  edge: ItemEdge,
-  node: Item,
-}) {}
-
 @InputType()
-class MyProjectsCursor implements Cursor {
+class Cursor implements InitCursor {
   @Field()
-  _id!: number;
+  id!: number;
 
   [key: string]: unknown;
 }
+@ObjectType()
+export class ItemEdge extends EdgeType<Cursor>(Item) {}
+
+@ObjectType()
+export class ItemConnection extends ConnectionType<Cursor>({
+  edge: ItemEdge,
+  node: Item,
+}) {}
 
 export const items = [
   {
     id: 1,
   },
   {
-    id: 2,
+    id: 3,
   },
   {
-    id: 3,
+    id: 2,
   },
   {
     id: 4,
@@ -60,16 +61,16 @@ export const items = [
 export class ItemResolver {
   @Query(() => ItemConnection)
   Items(
-    @Args() _forwardPaging: ForwardPaginationArgs,
-    @Args() _backwardPaging: BackwardPaginationArgs
+    @Args() forwardPaging: ForwardPaginationArgs<Cursor>,
+    @Args() backwardPaging: BackwardPaginationArgs<Cursor>
   ): ItemConnection {
+    const edges = edgesToReturn<Cursor>(
+      items.map((node) => ({ node, cursor: { id: node.id } })),
+      { ...forwardPaging, ...backwardPaging }
+    );
     return {
-      edges: items.map((node) => ({
-        /** You can pick off whatever properties fit your cursor or repeat the whole node */
-        cursor: { id: node.id },
-        node,
-      })),
-      nodes: items,
+      edges,
+      nodes: edges.map((x) => x.node),
       pageInfo: {
         count: items.length,
         hasNextPage: false,
@@ -88,8 +89,8 @@ export class ItemResolver {
     schema,
     document: gql`
       #graphql
-      query ($after: Cursor!, $before: Cursor!, first: 3) {
-        Items(after: $after, before: $before) {
+      query ($after: Cursor!, $before: Cursor!) {
+        Items(after: $after, before: $before, first: 3) {
           edges {
             cursor
             node {

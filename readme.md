@@ -1,12 +1,52 @@
 # typegraphql-relay-connections
 
-This library provides a way to setup typings for TypeGraphQL with Relay.
+This library provides a way to setup typings for [TypeGraphQL](https://typegraphql.com/) with Relay.
 
 Note that though pagination types and utils are in this repo, the implementation of the paging algorithms are up to the user this is on purpose and is meant to keep this library small and maintanable.
 
-## Usage
 
-See the [tests](./src/__tests__/index.spec.ts) and the [example](./src/examples/index.example.ts) folder for examples.
+## Tutorial
+
+We'll start with some imports for this:
+
+```ts
+
+```
+
+First create an object-type through [type-graphql](https://typegraphql.com/)
+
+
+
+```ts
+@ObjectType()
+class Item {
+  @Field()
+  id!: number;
+}
+```
+
+```ts
+ObjectType()
+export class ItemEdge extends EdgeType(Item) {}
+
+@ObjectType()
+export class ItemConnection extends ConnectionType({
+  edge: ItemEdge,
+  node: Item,
+}) {}
+
+@InputType()
+class MyProjectsCursor implements Cursor {
+  @Field()
+  _id!: number;
+
+  [key: string]: unknown;
+}
+```
+
+### Example
+
+See the [tests](./src/__tests__/index.spec.ts) and the [example](./src/examples/index.example.ts) folder for more examples.
 
 Here's a (possibly, at some point, out of date) version of the example:
 
@@ -23,13 +63,13 @@ import {
   Query,
   Resolver,
 } from "type-graphql";
-import {
+import Cursor, {
   ForwardPaginationArgs,
   ConnectionType,
   EdgeType,
   BackwardPaginationArgs,
-} from "../";
-import Cursor, { serializeCursor } from "../cursor";
+  serializeCursor
+} from "typegraphql-relay-connections";
 
 @ObjectType()
 class Item {
