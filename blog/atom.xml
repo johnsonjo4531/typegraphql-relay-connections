@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://johnsonjo4531.github.io/typegraphql-relay-connections/blog</id>
+    <title>TypeGraphQL Relay Connections Blog</title>
+    <updated>2022-03-14T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://johnsonjo4531.github.io/typegraphql-relay-connections/blog"/>
+    <subtitle>TypeGraphQL Relay Connections Blog</subtitle>
+    <entry>
+        <title type="html"><![CDATA[First Blog Post]]></title>
+        <id>first-blog-post</id>
+        <link href="https://johnsonjo4531.github.io/typegraphql-relay-connections/blog/first-blog-post"/>
+        <updated>2022-03-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Woohoo, enjoy the documentation release for this project!]]></summary>
+        <content type="html"><![CDATA[<p>Woohoo, enjoy the documentation release for this project!</p>]]></content>
+        <author>
+            <name>John D. Johnson</name>
+            <uri>https://github.com/johnsonjo4531</uri>
+        </author>
+        <category label="typegraphql-relay-connections" term="typegraphql-relay-connections"/>
+        <category label="typegraphql" term="typegraphql"/>
+        <category label="relay" term="relay"/>
+        <category label="connections" term="connections"/>
+        <category label="relay-connections" term="relay-connections"/>
+    </entry>
+</feed>
