@@ -95,6 +95,10 @@ const config = {
               //   label: 'Stack Overflow',
               //   href: 'https://stackoverflow.com/questions/tagged/docusaurus',
               // },
+              {
+                label: 'Discord',
+                href: 'https://discord.gg/zXukZqpNzt',
+              },
             ],
           },
           {
