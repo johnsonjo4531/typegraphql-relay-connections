@@ -13,6 +13,15 @@ function HomepageHeader() {
       <div className="container">
         <h1 className="hero__title">{siteConfig.title}</h1>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <img
+          alt="typegraphql-relay-connections logo"
+          src="img/logo.png"
+          width="240"
+          height="240"
+          style={{
+            borderRadius: "50%",
+          }}
+        />
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"

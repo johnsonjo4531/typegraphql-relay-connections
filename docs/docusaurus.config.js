@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/typegraphql-relay-connections/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  // favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.png',
   organizationName: 'johnsonjo4531', // Usually your GitHub org/user name.
   projectName: 'typegraphql-relay-connections', // Usually your repo name.
   trailingSlash: false,
@@ -45,10 +45,10 @@ const config = {
     ({
       navbar: {
         title: 'TypeGraphQL Relay Connections',
-        // logo: {
-        //   alt: 'TypeGraphQL Relay Connections Logo',
-        //   src: 'img/logo.svg',
-        // },
+        logo: {
+          alt: 'TypeGraphQL Relay Connections Logo',
+          src: 'img/logo.png',
+        },
         items: [
           {
             type: 'doc',
