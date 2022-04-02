@@ -6,6 +6,7 @@
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://johnsonjo4531.github.io/typegraphql-relay-connections/blog"/>
     <subtitle>TypeGraphQL Relay Connections Blog</subtitle>
+    <icon>https://johnsonjo4531.github.io/typegraphql-relay-connections/img/favicon.png</icon>
     <entry>
         <title type="html"><![CDATA[First Blog Post]]></title>
         <id>first-blog-post</id>
