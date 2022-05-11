@@ -18,14 +18,31 @@ type Item {
 }
 
 type ItemConnection {
+  """
+  A list of objects with a record data (node) and its corresponding cursor from the query.
+  """
   edges: [ItemEdge!]!
   nodes: [Item!]!
+
+  """
+  
+        PageInfo is information about the paging/cursoring happening on the server.
+        You can use this information to request either the next or previous pages.
+        Use it in conjunction with the `ForwardPaginationArgs` and `BackwardPaginationArgs`.
+        
+  """
   pageInfo: PageInfo!
 }
 
 type ItemEdge {
-  """Used in `before` and `after` args"""
+  """
+  
+        Represents this location in the query use it in `before` and `after` args
+        to query before and after this location.
+  """
   cursor: Cursor!
+
+  """The data of the record that goes along with this edge."""
   node: Item!
 }
 
@@ -37,31 +54,86 @@ type ItemEdge {
 
 """
 type PageInfo {
+  """
+  The estimated total count of records that may be returned across multiple queries.
+  """
   count: Float!
+
+  """
+  
+      The cursor representing the last record from the returned query. 
+      Can be used to query before or after this record.
+  """
   endCursor: Cursor
 
-  """"""
+  """Whether the query has more records after the end cursor."""
   hasNextPage: Boolean!
+
+  """Whether the query has more records before the start cursor."""
   hasPreviousPage: Boolean!
+
+  """
+  
+      The cursor representing the first record from the returned query. 
+      Can be used to query before or after this record.
+  """
   startCursor: Cursor
 }
 
 type Query {
   Items: ItemConnection!
+  ThingItems: ThingItemConnection!
   cursor1(cursor: CursorInput1!): Cursor!
   cursor2(cursor: CursorInput2!): Cursor!
   pagingBackward(
-    """Grabs before the given cursor"""
+    """Grabs records ending before the given cursor."""
     before: Cursor
 
-    """Grabs the last n records"""
+    """Grabs the last n records."""
     last: Float
   ): Boolean!
   pagingForward(
-    """Grabs after the given cursor"""
+    """Grabs records starting from after the given cursor."""
     after: Cursor
 
-    """Grabs the first n records"""
+    """Grabs the first n records."""
     first: Float
   ): Boolean!
+}
+
+type Thing {
+  id: Float!
+  type: String!
+}
+
+"""A Thing or an Item"""
+union ThingItem = Item | Thing
+
+type ThingItemConnection {
+  """
+  A list of objects with a record data (node) and its corresponding cursor from the query.
+  """
+  edges: [ThingItemEdge!]!
+  nodes: [ThingItem!]!
+
+  """
+  
+        PageInfo is information about the paging/cursoring happening on the server.
+        You can use this information to request either the next or previous pages.
+        Use it in conjunction with the `ForwardPaginationArgs` and `BackwardPaginationArgs`.
+        
+  """
+  pageInfo: PageInfo!
+}
+
+type ThingItemEdge {
+  """
+  
+        Represents this location in the query use it in `before` and `after` args
+        to query before and after this location.
+  """
+  cursor: Cursor!
+
+  """The data of the record that goes along with this edge."""
+  node: ThingItem!
 }

@@ -126,7 +126,7 @@ test("can getItems", async () => {
   `);
 });
 
-test("Must give cursor use schema", async () => {
+test("must give cursor use schema", async () => {
   const schema = await buildSchema({
     resolvers: [ItemResolver],
   });
@@ -171,6 +171,75 @@ test("Must give cursor use schema", async () => {
     Object {
       "data": Object {
         "pagingForward": true,
+      },
+    }
+  `);
+});
+
+test("must allow union types", async () => {
+  const schema = await buildSchema({
+    resolvers: [ItemResolver],
+  });
+  // Note that though pagination types and utils are in this repo the implementation of the paging algorithms are up to the user.
+  const answer = execute({
+    schema,
+    document: gql`
+      # graphql
+      query {
+        ThingItems {
+          nodes {
+            __typename
+            ... on Thing {
+              id
+              type
+            }
+            ... on Item {
+              id
+            }
+          }
+        }
+      }
+    `,
+  });
+
+  expect(await answer).toMatchInlineSnapshot(`
+    Object {
+      "data": Object {
+        "ThingItems": Object {
+          "nodes": Array [
+            Object {
+              "__typename": "Thing",
+              "id": 5,
+              "type": "person",
+            },
+            Object {
+              "__typename": "Thing",
+              "id": 6,
+              "type": "dog",
+            },
+            Object {
+              "__typename": "Thing",
+              "id": 7,
+              "type": "country",
+            },
+            Object {
+              "__typename": "Item",
+              "id": 1,
+            },
+            Object {
+              "__typename": "Item",
+              "id": 2,
+            },
+            Object {
+              "__typename": "Item",
+              "id": 3,
+            },
+            Object {
+              "__typename": "Item",
+              "id": 4,
+            },
+          ],
+        },
       },
     }
   `);
