@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./docs/build/img/logo.png" />
+</p>
+
 # typegraphql-relay-connections
 
 This library provides a way to setup typings for [TypeGraphQL](https://typegraphql.com/) with Relay.
@@ -7,7 +11,7 @@ Note that though pagination types and utils are in this repo, the implementation
 ## Documentation
 
 
-[Docs](https://johnsonjo4531.github.io/typegraphql-relay-connections/)
+For more details than below view the [Docs](https://johnsonjo4531.github.io/typegraphql-relay-connections/).
 
 ## Tutorial
 
