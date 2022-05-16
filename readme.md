@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./docs/build/img/logo.png" />
+  <img src="./docs/static/img/logo.png" />
 </p>
 
 # typegraphql-relay-connections
