@@ -8,6 +8,10 @@ This library provides a way to setup typings for [TypeGraphQL](https://typegraph
 
 Note that though pagination types and utils are in this repo, the implementation of the paging algorithms are up to the user this is on purpose and is meant to keep this library small and maintanable.
 
+## Using mongoose?
+
+There is a companion library available called [mongoose-relay-paginate](https://www.npmjs.com/package/mongoose-relay-paginate)! It works great with this library.
+
 ## Documentation
 
 
@@ -27,8 +31,10 @@ class Item {
 }
 ```
 
+Then add this libraries Edge and Connection types to it:
+
 ```ts
-ObjectType()
+@ObjectType()
 export class ItemEdge extends EdgeType(Item) {}
 
 @ObjectType()

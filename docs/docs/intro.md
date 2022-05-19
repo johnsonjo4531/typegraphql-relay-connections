@@ -159,4 +159,8 @@ async function bootstrap() {
 bootstrap();
 ```
 
+## Using mongoose?
+
+There is a companion library available called [mongoose-relay-paginate](https://www.npmjs.com/package/mongoose-relay-paginate)! It works great with this library.
+
 
