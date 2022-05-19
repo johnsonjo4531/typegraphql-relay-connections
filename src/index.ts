@@ -52,6 +52,47 @@ export class BackwardPaginationArgs<CursorType extends Cursor = Cursor> {
   last?: number;
 }
 
+@ArgsType()
+export class FullPaginationArgs<CursorType extends Cursor = Cursor>
+  implements ForwardPaginationArgs<Cursor>, BackwardPaginationArgs<Cursor>
+{
+  /** Grabs records ending before the given cursor.
+   * @public
+   */
+  @Field(() => CursorScalar, {
+    nullable: true,
+    description: "Grabs records ending before the given cursor.",
+  })
+  before?: CursorType;
+
+  /** Grabs the last n records.
+   * @public
+   */
+  @Field(() => Number, {
+    nullable: true,
+    description: "Grabs the last n records.",
+  })
+  last?: number;
+
+  /** Grabs records starting from after the given cursor.
+   * @public
+   */
+  @Field(() => CursorScalar, {
+    nullable: true,
+    description: "Grabs records starting from after the given cursor.",
+  })
+  after?: CursorType;
+
+  /** Grabs the first n records.
+   * @public
+   */
+  @Field(() => Number, {
+    nullable: true,
+    description: "Grabs the first n records.",
+  })
+  first?: number;
+}
+
 /** PageInfo is information about the paging/cursoring happening on the server.
  * You can use this information to request either the next or previous pages.
  * Use it in conjunction with the `ForwardPaginationArgs` and `BackwardPaginationArgs`.
