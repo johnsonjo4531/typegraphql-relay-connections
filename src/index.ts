@@ -298,9 +298,7 @@ export function ConnectionType<
     that allows you to rerun a query at a different location using cursors 
     which are available in both the PageInfo and the EdgeType.`,
   })
-  class Connection
-    implements RelayConnectionType<CursorType, EdgeType, NodeType>
-  {
+  class Connection extends RelayConnectionType<CursorType, EdgeType, NodeType> {
     /** PageInfo is information about the paging/cursoring happening on the server.
      * You can use this information to request either the next or previous pages.
      * Use it in conjunction with the `ForwardPaginationArgs` and `BackwardPaginationArgs`.
