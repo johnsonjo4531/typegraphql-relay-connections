@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktypegraphql_relay_connections_docs=self.webpackChunktypegraphql_relay_connections_docs||[]).push([[2535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"First Blog Post","permalink":"/typegraphql-relay-connections/blog/first-blog-post","unlisted":false}]}')}}]);

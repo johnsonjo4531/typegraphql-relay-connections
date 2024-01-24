@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktypegraphql_relay_connections_docs=self.webpackChunktypegraphql_relay_connections_docs||[]).push([[1566],{1789:e=>{e.exports=JSON.parse('{"label":"relay","permalink":"/typegraphql-relay-connections/blog/tags/relay","allTagsPath":"/typegraphql-relay-connections/blog/tags","count":1,"unlisted":false}')}}]);

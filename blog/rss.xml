@@ -7,10 +7,11 @@
         <lastBuildDate>Mon, 14 Mar 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
         <item>
             <title><![CDATA[First Blog Post]]></title>
             <link>https://johnsonjo4531.github.io/typegraphql-relay-connections/blog/first-blog-post</link>
-            <guid>first-blog-post</guid>
+            <guid>https://johnsonjo4531.github.io/typegraphql-relay-connections/blog/first-blog-post</guid>
             <pubDate>Mon, 14 Mar 2022 00:00:00 GMT</pubDate>
             <description><![CDATA[Woohoo, enjoy the documentation release for this project!]]></description>
             <content:encoded><![CDATA[<p>Woohoo, enjoy the documentation release for this project!</p>]]></content:encoded>

@@ -9,7 +9,7 @@
     <icon>https://johnsonjo4531.github.io/typegraphql-relay-connections/img/favicon.png</icon>
     <entry>
         <title type="html"><![CDATA[First Blog Post]]></title>
-        <id>first-blog-post</id>
+        <id>https://johnsonjo4531.github.io/typegraphql-relay-connections/blog/first-blog-post</id>
         <link href="https://johnsonjo4531.github.io/typegraphql-relay-connections/blog/first-blog-post"/>
         <updated>2022-03-14T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Woohoo, enjoy the documentation release for this project!]]></summary>
