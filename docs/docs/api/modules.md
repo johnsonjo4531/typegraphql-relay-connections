@@ -39,7 +39,7 @@ Renames and re-exports [Cursor](modules.md#cursor)
 
 #### Defined in
 
-[index.ts:149](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L149)
+[index.ts:149](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/index.ts#L149)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[index.ts:147](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L147)
+[index.ts:147](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/index.ts#L147)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[index.ts:148](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L148)
+[index.ts:148](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/index.ts#L148)
 
 ## Variables
 
@@ -69,9 +69,9 @@ ___
 
 #### Defined in
 
-[cursor.ts:40](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/cursor.ts#L40)
+[cursor.ts:40](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/cursor.ts#L40)
 
-[cursor.ts:107](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/cursor.ts#L107)
+[cursor.ts:107](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/cursor.ts#L107)
 
 ## Functions
 
@@ -127,7 +127,7 @@ export class ItemConnection extends ConnectionType({
 
 #### Defined in
 
-[index.ts:267](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L267)
+[index.ts:267](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/index.ts#L267)
 
 ___
 
@@ -179,7 +179,7 @@ export class ItemEdge extends EdgeType(Item) {
 
 #### Defined in
 
-[index.ts:188](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L188)
+[index.ts:188](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/index.ts#L188)
 
 ___
 
@@ -203,7 +203,7 @@ The full deserialized, decoded, and parsed cursor.
 
 #### Defined in
 
-[cursor.ts:60](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/cursor.ts#L60)
+[cursor.ts:60](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/cursor.ts#L60)
 
 ___
 
@@ -228,4 +228,4 @@ The encoded cursor ready to be sent to the client.
 
 #### Defined in
 
-[cursor.ts:50](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/cursor.ts#L50)
+[cursor.ts:50](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/cursor.ts#L50)

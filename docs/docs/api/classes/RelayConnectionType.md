@@ -40,7 +40,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[index.ts:236](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L236)
+[index.ts:236](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/index.ts#L236)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[index.ts:237](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L237)
+[index.ts:237](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/index.ts#L237)
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 #### Defined in
 
-[index.ts:235](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L235)
+[index.ts:235](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/index.ts#L235)
