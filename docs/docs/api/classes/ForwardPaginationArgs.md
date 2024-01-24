@@ -44,7 +44,7 @@ Grabs records starting from after the given cursor.
 
 #### Defined in
 
-[index.ts:19](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L19)
+[index.ts:18](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L18)
 
 ___
 
@@ -56,4 +56,4 @@ Grabs the first n records.
 
 #### Defined in
 
-[index.ts:28](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L28)
+[index.ts:27](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L27)

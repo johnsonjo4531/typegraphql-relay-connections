@@ -39,7 +39,7 @@ Renames and re-exports [Cursor](modules.md#cursor)
 
 #### Defined in
 
-[index.ts:150](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L150)
+[index.ts:149](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L149)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[index.ts:148](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L148)
+[index.ts:147](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L147)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[index.ts:149](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L149)
+[index.ts:148](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L148)
 
 ## Variables
 
@@ -127,7 +127,7 @@ export class ItemConnection extends ConnectionType({
 
 #### Defined in
 
-[index.ts:268](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L268)
+[index.ts:267](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L267)
 
 ___
 
@@ -179,7 +179,7 @@ export class ItemEdge extends EdgeType(Item) {
 
 #### Defined in
 
-[index.ts:189](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L189)
+[index.ts:188](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L188)
 
 ___
 

@@ -44,7 +44,7 @@ Grabs records ending before the given cursor.
 
 #### Defined in
 
-[index.ts:43](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L43)
+[index.ts:42](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L42)
 
 ___
 
@@ -56,4 +56,4 @@ Grabs the last n records.
 
 #### Defined in
 
-[index.ts:52](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L52)
+[index.ts:51](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/62106af/src/index.ts#L51)
