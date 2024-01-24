@@ -72,7 +72,6 @@ export class ItemResolver {
       edges,
       nodes: edges.map((x) => x.node),
       pageInfo: {
-        count: items.length,
         hasNextPage: false,
         hasPreviousPage: false,
         endCursor: items[items.length - 1],
@@ -101,7 +100,6 @@ export class ItemResolver {
             id
           }
           pageInfo {
-            count
             hasNextPage
             hasPreviousPage
             endCursor

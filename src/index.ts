@@ -1,7 +1,6 @@
 import { ObjectType, Field, ArgsType, ClassType } from "type-graphql";
 import CursorScalar, { serializeCursor, deserializeCursor } from "./cursor";
 import type { Cursor } from "./cursor";
-import { Min } from "class-validator";
 type HasConstructor<T> = T & { constructor: { name: string } };
 
 /** Allows forward pagination of a Relay connection type
@@ -143,16 +142,6 @@ export class PageInfo<CursorType extends Cursor = Cursor> {
     Can be used to query before or after this record.`,
   })
   endCursor?: CursorType;
-
-  /** The estimated total count of records that may be returned across multiple queries.
-   * @public
-   */
-  @Field({
-    description:
-      "The estimated total count of records that may be returned across multiple queries.",
-  })
-  @Min(0)
-  count!: number;
 }
 
 export type NodesType = unknown;

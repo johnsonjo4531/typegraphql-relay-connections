@@ -54,7 +54,6 @@ test("can getItems", async () => {
             id
           }
           pageInfo {
-            count
             endCursor
             hasNextPage
             hasPreviousPage
@@ -114,7 +113,6 @@ test("can getItems", async () => {
             },
           ],
           "pageInfo": Object {
-            "count": 4,
             "endCursor": "eyJpZCI6NH0=",
             "hasNextPage": false,
             "hasPreviousPage": false,

@@ -55,11 +55,6 @@ type ItemEdge {
 """
 type PageInfo {
   """
-  The estimated total count of records that may be returned across multiple queries.
-  """
-  count: Float!
-
-  """
   
       The cursor representing the last record from the returned query. 
       Can be used to query before or after this record.

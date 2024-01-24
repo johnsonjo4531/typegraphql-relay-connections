@@ -1,3 +1,11 @@
+---
+id: "index"
+title: "typegraphql-relay-connections"
+sidebar_label: "Readme"
+sidebar_position: 0
+custom_edit_url: null
+---
+
 <p align="center">
   <img src="./docs/static/img/logo.png" />
 </p>
@@ -14,14 +22,11 @@ There is a companion library available called [mongoose-relay-paginate](https://
 
 ## Documentation
 
-
 For more details than below view the [Docs](https://johnsonjo4531.github.io/typegraphql-relay-connections/).
 
 ## Tutorial
 
 First create an object-type through [type-graphql](https://typegraphql.com/)
-
-
 
 ```ts
 @ObjectType()

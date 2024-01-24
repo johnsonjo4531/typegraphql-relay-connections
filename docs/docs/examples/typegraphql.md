@@ -1,7 +1,3 @@
----
-sidebar_position: 4
----
-
 # TypeGraphQL Example 🏋️‍♂️
 
 See the [tests](https://github.com/johnsonjo4531/typegraphql-relay-connections/tree/main/src/__tests__/index.spec.ts) and the [example](https://github.com/johnsonjo4531/typegraphql-relay-connections/tree/main/src/examples/index.example.ts) folder for more examples.
@@ -103,7 +99,6 @@ class BookResolver {
         hasPreviousPage: false,
         endCursor: edges[edges.length - 1].cursor,
         startCursor: edges[0].cursor,
-        count: edges.length
       }
     };
   }
@@ -131,7 +126,6 @@ class BookResolver {
         hasPreviousPage: false,
         endCursor: edges[edges.length - 1].cursor,
         startCursor: edges[0].cursor,
-        count: edges.length
       }
     };
   }
@@ -155,7 +149,6 @@ class BookResolver {
         hasPreviousPage: false,
         endCursor: edges[edges.length - 1].cursor,
         startCursor: edges[0].cursor,
-        count: edges.length
       }
     };
   }

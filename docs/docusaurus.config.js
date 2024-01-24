@@ -17,6 +17,19 @@ const config = {
   projectName: 'typegraphql-relay-connections', // Usually your repo name.
   trailingSlash: false,
 
+  plugins: [
+    require.resolve('docusaurus-lunr-search'),
+    [
+      'docusaurus-plugin-typedoc',
+
+      // Plugin / TypeDoc options
+      {
+        entryPoints: ['../src/index.ts'],
+        tsconfig: '../tsconfig-just-index.js.json',
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -80,11 +93,15 @@ const config = {
               },
               {
                 label: 'API',
-                to: '/docs/api/edge-type',
+                to: '/docs/api/',
+              },
+              {
+                label: 'Usage',
+                to: '/docs/usage/edge-type',
               },
               {
                 label: 'examples',
-                to: '/docs/Examples',
+                to: '/docs/examples/typegraphql',
               },
             ],
           },

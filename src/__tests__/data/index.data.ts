@@ -113,7 +113,6 @@ export class ItemResolver {
       })),
       nodes: items,
       pageInfo: {
-        count: items.length,
         hasNextPage: false,
         hasPreviousPage: false,
         endCursor: items[items.length - 1],
@@ -132,7 +131,6 @@ export class ItemResolver {
       })),
       nodes: thingItems,
       pageInfo: {
-        count: thingItems.length,
         hasNextPage: false,
         hasPreviousPage: false,
         endCursor: thingItems[thingItems.length - 1],
