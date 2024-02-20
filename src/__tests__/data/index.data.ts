@@ -40,10 +40,7 @@ class Thing {
 export class ItemEdge extends EdgeType(Item) {}
 
 @ObjectType()
-export class ItemConnection extends ConnectionType({
-  edge: ItemEdge,
-  node: Item,
-}) {}
+export class ItemConnection extends ConnectionType(ItemEdge) {}
 
 const ThingItem = createUnionType({
   name: "ThingItem",
@@ -58,10 +55,7 @@ const ThingItem = createUnionType({
 export class ThingItemEdge extends EdgeType(ThingItem) {}
 
 @ObjectType()
-export class ThingItemConnection extends ConnectionType({
-  edge: ThingItemEdge,
-  node: ThingItem,
-}) {}
+export class ThingItemConnection extends ConnectionType(ThingItemEdge) {}
 
 @InputType()
 class CursorInput1 implements Cursor {
@@ -111,7 +105,6 @@ export class ItemResolver {
         cursor: { id: node.id },
         node,
       })),
-      nodes: items,
       pageInfo: {
         hasNextPage: false,
         hasPreviousPage: false,
@@ -129,7 +122,6 @@ export class ItemResolver {
         cursor: { id: node.id },
         node,
       })),
-      nodes: thingItems,
       pageInfo: {
         hasNextPage: false,
         hasPreviousPage: false,

@@ -229,12 +229,10 @@ export function EdgeType<
 
 export class RelayConnectionType<
   CursorType extends Cursor = Cursor,
-  EdgeType extends RelayEdgeType<CursorType> = RelayEdgeType<CursorType>,
-  NodeType extends NodesType = unknown
+  EdgeType extends RelayEdgeType<CursorType> = RelayEdgeType<CursorType>
 > {
   pageInfo!: PageInfo;
   edges!: EdgeType[];
-  nodes!: NodeType[];
 }
 
 /** Setup an extensible ConnectionType
@@ -256,25 +254,17 @@ export class RelayConnectionType<
  *
  * // You must create an edge type first
  * @ObjectType()
- * export class ItemConnection extends ConnectionType({
- *   edge: ItemEdge,
- *   node: Item,
- * }) {}
+ * export class ItemConnection extends ConnectionType(ItemEdge) {}
  * ```
  *
  * @public
  */
 export function ConnectionType<
   CursorType extends Cursor = Cursor,
-  EdgeType extends RelayEdgeType<CursorType> = RelayEdgeType<CursorType>,
-  NodeType extends NodesType = unknown
->({
-  edge,
-  node,
-}: {
-  edge: ClassType<EdgeType> | HasConstructor<EdgeType>;
-  node: ClassType<NodeType> | HasConstructor<NodeType>;
-}): ClassType<RelayConnectionType<CursorType, EdgeType, NodeType>> {
+  EdgeType extends RelayEdgeType<CursorType> = RelayEdgeType<CursorType>
+>(
+  edge: ClassType<EdgeType> | HasConstructor<EdgeType>
+): ClassType<RelayConnectionType<CursorType, EdgeType>> {
   /** A Connection Type is returned as a result from the server
    * that allows you to rerun a query at a different location using cursors
    * which are available in both the PageInfo and the EdgeType.
@@ -287,7 +277,7 @@ export function ConnectionType<
     that allows you to rerun a query at a different location using cursors 
     which are available in both the PageInfo and the EdgeType.`,
   })
-  class Connection extends RelayConnectionType<CursorType, EdgeType, NodeType> {
+  class Connection extends RelayConnectionType<CursorType, EdgeType> {
     /** PageInfo is information about the paging/cursoring happening on the server.
      * You can use this information to request either the next or previous pages.
      * Use it in conjunction with the `ForwardPaginationArgs` and `BackwardPaginationArgs`.
@@ -310,12 +300,6 @@ export function ConnectionType<
         "A list of objects with a record data (node) and its corresponding cursor from the query.",
     })
     edges!: ClassReturnType<ClassType<EdgeType>>[];
-
-    /** A list of record data objects from the query.
-     * @public
-     */
-    @Field(() => [node])
-    nodes!: ClassReturnType<ClassType<NodeType>>[];
   }
 
   return Connection;

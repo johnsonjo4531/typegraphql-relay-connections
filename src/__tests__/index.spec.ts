@@ -50,9 +50,6 @@ test("can getItems", async () => {
               id
             }
           }
-          nodes {
-            id
-          }
           pageInfo {
             endCursor
             hasNextPage
@@ -96,20 +93,6 @@ test("can getItems", async () => {
               "node": Object {
                 "id": 4,
               },
-            },
-          ],
-          "nodes": Array [
-            Object {
-              "id": 1,
-            },
-            Object {
-              "id": 2,
-            },
-            Object {
-              "id": 3,
-            },
-            Object {
-              "id": 4,
             },
           ],
           "pageInfo": Object {
@@ -185,14 +168,16 @@ test("must allow union types", async () => {
       # graphql
       query {
         ThingItems {
-          nodes {
-            __typename
-            ... on Thing {
-              id
-              type
-            }
-            ... on Item {
-              id
+          edges {
+            node {
+              __typename
+              ... on Thing {
+                id
+                type
+              }
+              ... on Item {
+                id
+              }
             }
           }
         }
@@ -204,37 +189,51 @@ test("must allow union types", async () => {
     Object {
       "data": Object {
         "ThingItems": Object {
-          "nodes": Array [
+          "edges": Array [
             Object {
-              "__typename": "Thing",
-              "id": 5,
-              "type": "person",
+              "node": Object {
+                "__typename": "Thing",
+                "id": 5,
+                "type": "person",
+              },
             },
             Object {
-              "__typename": "Thing",
-              "id": 6,
-              "type": "dog",
+              "node": Object {
+                "__typename": "Thing",
+                "id": 6,
+                "type": "dog",
+              },
             },
             Object {
-              "__typename": "Thing",
-              "id": 7,
-              "type": "country",
+              "node": Object {
+                "__typename": "Thing",
+                "id": 7,
+                "type": "country",
+              },
             },
             Object {
-              "__typename": "Item",
-              "id": 1,
+              "node": Object {
+                "__typename": "Item",
+                "id": 1,
+              },
             },
             Object {
-              "__typename": "Item",
-              "id": 2,
+              "node": Object {
+                "__typename": "Item",
+                "id": 2,
+              },
             },
             Object {
-              "__typename": "Item",
-              "id": 3,
+              "node": Object {
+                "__typename": "Item",
+                "id": 3,
+              },
             },
             Object {
-              "__typename": "Item",
-              "id": 4,
+              "node": Object {
+                "__typename": "Item",
+                "id": 4,
+              },
             },
           ],
         },

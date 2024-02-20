@@ -39,7 +39,7 @@ Renames and re-exports [Cursor](modules.md#cursor)
 
 #### Defined in
 
-[index.ts:149](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/index.ts#L149)
+[index.ts:149](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/56c9c89/src/index.ts#L149)
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 #### Defined in
 
-[index.ts:147](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/index.ts#L147)
+[index.ts:147](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/56c9c89/src/index.ts#L147)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[index.ts:148](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/index.ts#L148)
+[index.ts:148](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/56c9c89/src/index.ts#L148)
 
 ## Variables
 
@@ -69,15 +69,15 @@ ___
 
 #### Defined in
 
-[cursor.ts:40](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/cursor.ts#L40)
+[cursor.ts:40](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/56c9c89/src/cursor.ts#L40)
 
-[cursor.ts:107](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/cursor.ts#L107)
+[cursor.ts:107](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/56c9c89/src/cursor.ts#L107)
 
 ## Functions
 
 ### ConnectionType
 
-▸ **ConnectionType**\<`CursorType`, `EdgeType`, `NodeType`\>(`«destructured»`): `ClassType`\<[`RelayConnectionType`](classes/RelayConnectionType.md)\<`CursorType`, `EdgeType`, `NodeType`\>\>
+▸ **ConnectionType**\<`CursorType`, `EdgeType`\>(`edge`): `ClassType`\<[`RelayConnectionType`](classes/RelayConnectionType.md)\<`CursorType`, `EdgeType`\>\>
 
 Setup an extensible ConnectionType
 
@@ -87,19 +87,16 @@ Setup an extensible ConnectionType
 | :------ | :------ |
 | `CursorType` | extends [`Cursor`](interfaces/Cursor.md) = [`Cursor`](interfaces/Cursor.md) |
 | `EdgeType` | extends [`RelayEdgeType`](classes/RelayEdgeType.md)\<`CursorType`, `unknown`, `EdgeType`\> = [`RelayEdgeType`](classes/RelayEdgeType.md)\<`CursorType`, `unknown`\> |
-| `NodeType` | extends `unknown` = `unknown` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `«destructured»` | `Object` |
-| › `edge` | `ClassType`\<`EdgeType`\> \| `HasConstructor`\<`EdgeType`\> |
-| › `node` | `ClassType`\<`NodeType`\> \| `HasConstructor`\<`NodeType`\> |
+| `edge` | `ClassType`\<`EdgeType`\> \| `HasConstructor`\<`EdgeType`\> |
 
 #### Returns
 
-`ClassType`\<[`RelayConnectionType`](classes/RelayConnectionType.md)\<`CursorType`, `EdgeType`, `NodeType`\>\>
+`ClassType`\<[`RelayConnectionType`](classes/RelayConnectionType.md)\<`CursorType`, `EdgeType`\>\>
 
 A graphql object type that represents fields that can be queried.
 
@@ -119,15 +116,12 @@ export class ItemEdge extends EdgeType(Item) {}
 
 // You must create an edge type first
 @ObjectType()
-export class ItemConnection extends ConnectionType({
-  edge: ItemEdge,
-  node: Item,
-}) {}
+export class ItemConnection extends ConnectionType(ItemEdge) {}
 ```
 
 #### Defined in
 
-[index.ts:267](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/index.ts#L267)
+[index.ts:262](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/56c9c89/src/index.ts#L262)
 
 ___
 
@@ -179,7 +173,7 @@ export class ItemEdge extends EdgeType(Item) {
 
 #### Defined in
 
-[index.ts:188](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/index.ts#L188)
+[index.ts:188](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/56c9c89/src/index.ts#L188)
 
 ___
 
@@ -203,7 +197,7 @@ The full deserialized, decoded, and parsed cursor.
 
 #### Defined in
 
-[cursor.ts:60](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/cursor.ts#L60)
+[cursor.ts:60](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/56c9c89/src/cursor.ts#L60)
 
 ___
 
@@ -228,4 +222,4 @@ The encoded cursor ready to be sent to the client.
 
 #### Defined in
 
-[cursor.ts:50](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f7686e2/src/cursor.ts#L50)
+[cursor.ts:50](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/56c9c89/src/cursor.ts#L50)

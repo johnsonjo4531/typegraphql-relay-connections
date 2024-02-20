@@ -37,20 +37,17 @@ class Cursor implements InitCursor {
 export class ItemEdge extends EdgeType<Cursor>(Item) {}
 
 @ObjectType()
-export class ItemConnection extends ConnectionType<Cursor>({
-  edge: ItemEdge,
-  node: Item,
-}) {}
+export class ItemConnection extends ConnectionType<Cursor>(ItemEdge) {}
 
 export const items = [
   {
     id: 1,
   },
   {
-    id: 3,
+    id: 2,
   },
   {
-    id: 2,
+    id: 3,
   },
   {
     id: 4,
@@ -64,13 +61,12 @@ export class ItemResolver {
     @Args() forwardPaging: ForwardPaginationArgs<Cursor>,
     @Args() backwardPaging: BackwardPaginationArgs<Cursor>
   ): ItemConnection {
-    const edges = edgesToReturn<Cursor>(
+    const edges = edgesToReturn(
       items.map((node) => ({ node, cursor: { id: node.id } })),
       { ...forwardPaging, ...backwardPaging }
     );
     return {
       edges,
-      nodes: edges.map((x) => x.node),
       pageInfo: {
         hasNextPage: false,
         hasPreviousPage: false,
@@ -95,9 +91,6 @@ export class ItemResolver {
             node {
               id
             }
-          }
-          nodes {
-            id
           }
           pageInfo {
             hasNextPage

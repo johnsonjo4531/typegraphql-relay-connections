@@ -48,10 +48,7 @@ class NewBookInput {
 class BookEdge extends EdgeType(Book) {}
 
 @ObjectType()
-class BookConnection extends ConnectionType({
-  edge: BookEdge,
-  node: Book
-}) {}
+class BookConnection extends ConnectionType(BookEdge) {}
 
 declare module "typegraphql-relay-connections" {
   interface Cursor {
@@ -93,7 +90,6 @@ class BookResolver {
     );
     return {
       edges,
-      nodes: edges.map((x) => x.node),
       pageInfo: {
         hasNextPage: false,
         hasPreviousPage: false,
@@ -120,7 +116,6 @@ class BookResolver {
     );
     return {
       edges,
-      nodes: edges.map((x) => x.node),
       pageInfo: {
         hasNextPage: false,
         hasPreviousPage: false,
@@ -143,7 +138,6 @@ class BookResolver {
     );
     return {
       edges,
-      nodes: edges.map((x) => x.node),
       pageInfo: {
         hasNextPage: false,
         hasPreviousPage: false,

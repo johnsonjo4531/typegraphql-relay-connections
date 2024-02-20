@@ -35,10 +35,7 @@ class Song {
 export class SongEdge extends EdgeType(Song) {}
 
 @ObjectType()
-export class SongConnection extends ConnectionType({
-  edge: SongEdge,
-  node: Song,
-}) {}
+export class SongConnection extends ConnectionType(SongEdge) {}
 ```
 
 The last thing we can do with this library is [extend the built in Cursor](./tutorials/custom-cursors) like so:
@@ -111,10 +108,7 @@ That last part was just TypeGraphQL, but next is where this library comes in. It
 export class SongEdge extends EdgeType(Song) {}
 
 @ObjectType()
-export class SongConnection extends ConnectionType({
-  edge: SongEdge,
-  node: Song,
-}) {}
+export class SongConnection extends ConnectionType(SongEdge) {}
 
 
 declare module "typegraphql-relay-connections" {

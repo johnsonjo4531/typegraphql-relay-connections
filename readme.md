@@ -38,10 +38,7 @@ Then add this libraries Edge and Connection types to it:
 export class ItemEdge extends EdgeType(Item) {}
 
 @ObjectType()
-export class ItemConnection extends ConnectionType({
-  edge: ItemEdge,
-  node: Item,
-}) {}
+export class ItemConnection extends ConnectionType(ItemEdge) {}
 
 @InputType()
 class MyProjectsCursor implements Cursor {
@@ -89,10 +86,7 @@ class Item {
 export class ItemEdge extends EdgeType(Item) {}
 
 @ObjectType()
-export class ItemConnection extends ConnectionType({
-  edge: ItemEdge,
-  node: Item,
-}) {}
+export class ItemConnection extends ConnectionType(ItemEdge) {}
 
 @InputType()
 class MyProjectsCursor implements Cursor {
@@ -130,7 +124,6 @@ export class ItemResolver {
         cursor: { id: node.id },
         node,
       })),
-      nodes: items,
       pageInfo: {
         hasNextPage: false,
         hasPreviousPage: false,
@@ -155,9 +148,6 @@ export class ItemResolver {
             node {
               id
             }
-          }
-          nodes {
-            id
           }
           pageInfo {
             hasNextPage

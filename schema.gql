@@ -22,7 +22,6 @@ type ItemConnection {
   A list of objects with a record data (node) and its corresponding cursor from the query.
   """
   edges: [ItemEdge!]!
-  nodes: [Item!]!
 
   """
   
@@ -109,7 +108,6 @@ type ThingItemConnection {
   A list of objects with a record data (node) and its corresponding cursor from the query.
   """
   edges: [ThingItemEdge!]!
-  nodes: [ThingItem!]!
 
   """
   

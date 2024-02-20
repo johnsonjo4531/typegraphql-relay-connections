@@ -9,10 +9,7 @@ The `ConnectionType` function is the slightly more complicated of the two main f
 
 ```ts
 @ObjectType()
-export class SongConnection extends ConnectionType({
-  node: Song,
-  edge: SongEdge
-}) {
+export class SongConnection extends ConnectionType(SongEdge) {
   // You can add additional Types to your ConnectionType that are specific to it here:
 }
 ```
@@ -39,8 +36,5 @@ export class SongEdge extends EdgeType(Song) {}
 
 // This is the ConnectionType:
 @ObjectType()
-export class SongConnection extends ConnectionType({
-  node: Song,
-  edge: SongEdge
-}) {}
+export class SongConnection extends ConnectionType(SongEdge) {}
 ```
