@@ -1,4 +1,4 @@
-import { ObjectType, Field, ArgsType, ClassType } from "type-graphql";
+import { ObjectType, Field, ArgsType, ClassType, Int } from "type-graphql";
 import CursorScalar, { serializeCursor, deserializeCursor } from "./cursor";
 import type { Cursor } from "./cursor";
 type HasConstructor<T> = T & { constructor: { name: string } };
@@ -20,7 +20,7 @@ export class ForwardPaginationArgs<CursorType extends Cursor = Cursor> {
   /** Grabs the first n records.
    * @public
    */
-  @Field(() => Number, {
+  @Field(() => Int, {
     nullable: true,
     description: "Grabs the first n records.",
   })
@@ -44,7 +44,7 @@ export class BackwardPaginationArgs<CursorType extends Cursor = Cursor> {
   /** Grabs the last n records.
    * @public
    */
-  @Field(() => Number, {
+  @Field(() => Int, {
     nullable: true,
     description: "Grabs the last n records.",
   })
@@ -67,7 +67,7 @@ export class FullPaginationArgs<CursorType extends Cursor = Cursor>
   /** Grabs the last n records.
    * @public
    */
-  @Field(() => Number, {
+  @Field(() => Int, {
     nullable: true,
     description: "Grabs the last n records.",
   })
@@ -85,7 +85,7 @@ export class FullPaginationArgs<CursorType extends Cursor = Cursor>
   /** Grabs the first n records.
    * @public
    */
-  @Field(() => Number, {
+  @Field(() => Int, {
     nullable: true,
     description: "Grabs the first n records.",
   })

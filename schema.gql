@@ -84,14 +84,14 @@ type Query {
     before: Cursor
 
     """Grabs the last n records."""
-    last: Float
+    last: Int
   ): Boolean!
   pagingForward(
     """Grabs records starting from after the given cursor."""
     after: Cursor
 
     """Grabs the first n records."""
-    first: Float
+    first: Int
   ): Boolean!
 }
 
