@@ -34,6 +34,34 @@ test("can paginate", async () => {
   `);
 });
 
+test("expects first and last to be Int ", async () => {
+  const schema = await buildSchema({
+    resolvers: [ItemResolver],
+  });
+  const answer = execute({
+    schema,
+    document: gql`
+      #graphql
+      query ($first: Int, $last: Int) {
+        pagingForward(first: $first)
+        pagingBackward(last: $last)
+      }
+    `,
+    variableValues: {
+      first: 3,
+      last: 5,
+    },
+  });
+  expect(await answer).toMatchInlineSnapshot(`
+    Object {
+      "data": Object {
+        "pagingBackward": true,
+        "pagingForward": true,
+      },
+    }
+  `);
+});
+
 test("can getItems", async () => {
   const schema = await buildSchema({
     resolvers: [ItemResolver],
