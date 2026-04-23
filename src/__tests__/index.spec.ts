@@ -1,9 +1,10 @@
 import "reflect-metadata";
 import { buildSchema } from "type-graphql";
-import { ItemResolver } from "./data/index.data";
+import { ItemConnection, ItemResolver } from "./data/index.data";
 import { gql } from "graphql-tag";
 import { execute } from "graphql";
 import { serializeCursor } from "../cursor";
+import { RelayConnectionType } from "..";
 
 test("can paginate", async () => {
   const schema = await buildSchema({

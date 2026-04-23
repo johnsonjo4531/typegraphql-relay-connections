@@ -1,0 +1,1 @@
+|typegraphql-relay-connections|type-graphql|graphql|
