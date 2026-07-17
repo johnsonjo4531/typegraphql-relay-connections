@@ -1,5 +1,19 @@
 # Changelog
 
+## Version 4
+
+### 4.0.1
+
+A major bug fix was completed where this error was popping up intermittently:
+
+> Details: No data returned for operation Query, got error(s): Unknown argument "input" on field "FieldName.node". Unknown argument "first" on field "FieldName.node". See the error source property for more information.
+
+For more information [see issue #5 on github](https://github.com/johnsonjo4531/typegraphql-relay-connections/issues/5)
+
+### 4.0.0
+
+Changed first & last arguments to Int (instead of Float) as per relay spec.
+
 ## Version 2.x to 3.x
 
 Removed the `nodes` property from the ConnectionType as it is not part of the spec.
@@ -16,12 +30,11 @@ instead of like this (passing in both the node and item edge as an object):
 ```ts
 @ObjectType()
 export class ItemConnection extends ConnectionType({
-  node: Item, 
-  edge: ItemEdge
+  node: Item,
+  edge: ItemEdge,
 }) {}
 ```
 
-
 ## Version 1.x to 2.x
 
-Removed the `count`  property from `PageInfo` as it is not part of the spec.
+Removed the `count` property from `PageInfo` as it is not part of the spec.
