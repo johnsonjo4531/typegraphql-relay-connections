@@ -43,7 +43,7 @@ Can be used to query before or after this record.
 
 #### Defined in
 
-[index.ts:144](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/6b2073a/src/index.ts#L144)
+[index.ts:161](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/index.ts#L161)
 
 ___
 
@@ -55,7 +55,7 @@ Whether the query has more records after the end cursor.
 
 #### Defined in
 
-[index.ts:114](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/6b2073a/src/index.ts#L114)
+[index.ts:131](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/index.ts#L131)
 
 ___
 
@@ -67,7 +67,7 @@ Whether the query has more records before the start cursor.
 
 #### Defined in
 
-[index.ts:122](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/6b2073a/src/index.ts#L122)
+[index.ts:139](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/index.ts#L139)
 
 ___
 
@@ -80,4 +80,4 @@ Can be used to query before or after this record.
 
 #### Defined in
 
-[index.ts:134](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/6b2073a/src/index.ts#L134)
+[index.ts:151](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/index.ts#L151)
