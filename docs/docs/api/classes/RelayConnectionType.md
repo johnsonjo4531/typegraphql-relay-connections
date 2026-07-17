@@ -38,7 +38,7 @@ custom_edit_url: null
 
 #### Defined in
 
-[index.ts:259](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/index.ts#L259)
+[index.ts:269](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/49d7224/src/index.ts#L269)
 
 ___
 
@@ -48,4 +48,4 @@ ___
 
 #### Defined in
 
-[index.ts:258](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/index.ts#L258)
+[index.ts:268](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/49d7224/src/index.ts#L268)

@@ -49,7 +49,7 @@ Grabs records starting from after the given cursor.
 
 #### Defined in
 
-[index.ts:100](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/index.ts#L100)
+[index.ts:100](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/49d7224/src/index.ts#L100)
 
 ___
 
@@ -65,7 +65,7 @@ Grabs records ending before the given cursor.
 
 #### Defined in
 
-[index.ts:82](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/index.ts#L82)
+[index.ts:82](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/49d7224/src/index.ts#L82)
 
 ___
 
@@ -81,7 +81,7 @@ Grabs the first n records.
 
 #### Defined in
 
-[index.ts:109](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/index.ts#L109)
+[index.ts:109](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/49d7224/src/index.ts#L109)
 
 ___
 
@@ -97,4 +97,4 @@ Grabs the last n records.
 
 #### Defined in
 
-[index.ts:91](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/index.ts#L91)
+[index.ts:91](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/49d7224/src/index.ts#L91)

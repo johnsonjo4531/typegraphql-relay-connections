@@ -2,6 +2,10 @@
 
 ## Version 4
 
+### 4.0.2
+
+This should fix a major bug introduced in 4.0.1 that caused type issues
+
 ### 4.0.1
 
 A major bug fix was completed where this error was popping up intermittently:

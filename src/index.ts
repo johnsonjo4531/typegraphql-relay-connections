@@ -161,7 +161,7 @@ export class PageInfo<CursorType extends Cursor = Cursor> {
   endCursor?: CursorType;
 }
 
-export type NodesType = ClassReturnType<ClassType<unknown>>;
+export type NodesType = unknown;
 export type NodesTypeClass = ClassType<NodesType>;
 export type ClassReturnType<T extends ClassType<unknown>> = T extends ClassType<
   infer J
@@ -206,10 +206,20 @@ export function EdgeType<
   CursorType extends Cursor = Cursor,
   NodeType extends NodesType = unknown
 >(
+  nodeType: ClassType<NodeType>
+): ClassType<RelayEdgeType<CursorType, NodeType>>;
+export function EdgeType<
+  CursorType extends Cursor = Cursor,
+  NodeType extends NodesType = unknown
+>(nodeType: NodeType): ClassType<RelayEdgeType<CursorType, NodeType>>;
+export function EdgeType<
+  CursorType extends Cursor = Cursor,
+  NodeType extends NodesType = unknown
+>(
   /// This allows ObjectType's in Graphql which is the ClassType<NodeType> parameter, but it also
   ///  has to allow union types in typegraphql which are actually symbol's but disguise themselves as NodeType.
-  nodeType: ClassType<NodeType> | NodeType
-): ClassType<RelayEdgeType<CursorType, NodeType>> {
+  nodeType: ClassType<NodeType> | NodeType | ClassType<unknown> | unknown
+): ClassType<unknown> {
   // TypeGraphQL's declared return type for createUnionType (NodeType) doesn't
   // match its actual runtime value (a Symbol). We cast past the declared,
   // misleading static type to the type that's actually correct at runtime.

@@ -2,7 +2,7 @@
   "name": "typegraphql-relay-connections",
   "description": "TypeGraphQL Relay Connection Helpers",
   "license": "MIT",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "files": [
     "lib/**/*"
   ],
@@ -31,7 +31,7 @@
   "peerDependencies": {
     "graphql": ">=16.0.0 || >=15.0.0",
     "reflect-metadata": ">=0.1.13",
-    "type-graphql": "1.x || 2.x || ^2.0.0-beta.1"
+    "type-graphql": "1.x || 2.x || ^2.0.0-beta.1 || ^2.0.0-rc.4"
   },
   "scripts": {
     "build": "npm-run-all clean tsc format lint generate",

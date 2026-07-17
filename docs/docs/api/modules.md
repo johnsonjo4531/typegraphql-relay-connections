@@ -39,17 +39,17 @@ Renames and re-exports [Cursor](modules.md#cursor)
 
 #### Defined in
 
-[index.ts:166](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/index.ts#L166)
+[index.ts:166](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/49d7224/src/index.ts#L166)
 
 ___
 
 ### NodesType
 
-Ƭ **NodesType**: [`ClassReturnType`](modules.md#classreturntype)\<`ClassType`\<`unknown`\>\>
+Ƭ **NodesType**: `unknown`
 
 #### Defined in
 
-[index.ts:164](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/index.ts#L164)
+[index.ts:164](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/49d7224/src/index.ts#L164)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[index.ts:165](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/index.ts#L165)
+[index.ts:165](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/49d7224/src/index.ts#L165)
 
 ## Variables
 
@@ -69,9 +69,9 @@ ___
 
 #### Defined in
 
-[cursor.ts:40](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/cursor.ts#L40)
+[cursor.ts:40](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/49d7224/src/cursor.ts#L40)
 
-[cursor.ts:107](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/cursor.ts#L107)
+[cursor.ts:107](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/49d7224/src/cursor.ts#L107)
 
 ## Functions
 
@@ -121,7 +121,7 @@ export class ItemConnection extends ConnectionType(ItemEdge) {}
 
 #### Defined in
 
-[index.ts:286](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/index.ts#L286)
+[index.ts:296](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/49d7224/src/index.ts#L296)
 
 ___
 
@@ -142,7 +142,7 @@ Setup a extensible EdgeType
 
 | Name | Type |
 | :------ | :------ |
-| `nodeType` | `NodeType` \| `ClassType`\<`NodeType`\> |
+| `nodeType` | `ClassType`\<`NodeType`\> |
 
 #### Returns
 
@@ -173,7 +173,30 @@ export class ItemEdge extends EdgeType(Item) {
 
 #### Defined in
 
-[index.ts:205](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/index.ts#L205)
+[index.ts:205](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/49d7224/src/index.ts#L205)
+
+▸ **EdgeType**\<`CursorType`, `NodeType`\>(`nodeType`): `ClassType`\<[`RelayEdgeType`](classes/RelayEdgeType.md)\<`CursorType`, `NodeType`\>\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `CursorType` | extends [`Cursor`](interfaces/Cursor.md) = [`Cursor`](interfaces/Cursor.md) |
+| `NodeType` | extends `unknown` = `unknown` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `nodeType` | `NodeType` |
+
+#### Returns
+
+`ClassType`\<[`RelayEdgeType`](classes/RelayEdgeType.md)\<`CursorType`, `NodeType`\>\>
+
+#### Defined in
+
+[index.ts:211](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/49d7224/src/index.ts#L211)
 
 ___
 
@@ -197,7 +220,7 @@ The full deserialized, decoded, and parsed cursor.
 
 #### Defined in
 
-[cursor.ts:60](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/cursor.ts#L60)
+[cursor.ts:60](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/49d7224/src/cursor.ts#L60)
 
 ___
 
@@ -222,4 +245,4 @@ The encoded cursor ready to be sent to the client.
 
 #### Defined in
 
-[cursor.ts:50](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/f61ccaf/src/cursor.ts#L50)
+[cursor.ts:50](https://github.com/johnsonjo4531/typegraphql-relay-connections/blob/49d7224/src/cursor.ts#L50)
