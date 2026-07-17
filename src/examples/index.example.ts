@@ -3,7 +3,6 @@ import gql from "graphql-tag";
 import "reflect-metadata";
 import {
   Args,
-  ArgsType,
   buildSchema,
   Field,
   InputType,

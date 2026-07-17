@@ -1,7 +1,24 @@
 import { ObjectType, Field, ArgsType, ClassType, Int } from "type-graphql";
 import CursorScalar, { serializeCursor, deserializeCursor } from "./cursor";
 import type { Cursor } from "./cursor";
-type HasConstructor<T> = T & { constructor: { name: string } };
+
+function getTypeName<T>(t: ClassType<T> | T): string {
+  if (typeof t === "symbol") {
+    // Gets the union type name
+    return (
+      t.description ??
+      (() => {
+        throw new Error("Unknown Union typename");
+      })()
+    );
+  }
+  return (
+    (t as { name: string }).name ??
+    (() => {
+      throw new Error("Unknown ObjectType typename");
+    })()
+  );
+}
 
 /** Allows forward pagination of a Relay connection type
  * @public
@@ -144,7 +161,7 @@ export class PageInfo<CursorType extends Cursor = Cursor> {
   endCursor?: CursorType;
 }
 
-export type NodesType = unknown;
+export type NodesType = ClassReturnType<ClassType<unknown>>;
 export type NodesTypeClass = ClassType<NodesType>;
 export type ClassReturnType<T extends ClassType<unknown>> = T extends ClassType<
   infer J
@@ -189,14 +206,21 @@ export function EdgeType<
   CursorType extends Cursor = Cursor,
   NodeType extends NodesType = unknown
 >(
-  nodeType: ClassType<NodeType> | HasConstructor<NodeType>
+  /// This allows ObjectType's in Graphql which is the ClassType<NodeType> parameter, but it also
+  ///  has to allow union types in typegraphql which are actually symbol's but disguise themselves as NodeType.
+  nodeType: ClassType<NodeType> | NodeType
 ): ClassType<RelayEdgeType<CursorType, NodeType>> {
+  // TypeGraphQL's declared return type for createUnionType (NodeType) doesn't
+  // match its actual runtime value (a Symbol). We cast past the declared,
+  // misleading static type to the type that's actually correct at runtime.
+  const runtimeNodeType = nodeType as unknown as ClassType<NodeType> | symbol;
+
   /** An Edge Type is an intermediate result that is generally returned
    * from the server as part of a ConnectionType which allows rerunning of a query at
    * any given point through its use of cursors.
    * @public
    */
-  @ObjectType(`${nodeType.constructor.name}Edge`, {
+  @ObjectType(`${getTypeName(nodeType)}Edge`, {
     isAbstract: true,
     description: `
     An Edge Type is an intermediate result that is generally returned
@@ -207,7 +231,7 @@ export function EdgeType<
     /** The data of the record that goes along with this edge.
      * @public
      */
-    @Field(() => nodeType, {
+    @Field(() => runtimeNodeType, {
       description: "The data of the record that goes along with this edge.",
     })
     node!: ClassReturnType<ClassType<NodeType>>;
@@ -263,14 +287,14 @@ export function ConnectionType<
   CursorType extends Cursor = Cursor,
   EdgeType extends RelayEdgeType<CursorType> = RelayEdgeType<CursorType>
 >(
-  edge: ClassType<EdgeType> | HasConstructor<EdgeType>
+  edge: ClassType<EdgeType>
 ): ClassType<RelayConnectionType<CursorType, EdgeType>> {
   /** A Connection Type is returned as a result from the server
    * that allows you to rerun a query at a different location using cursors
    * which are available in both the PageInfo and the EdgeType.
    * @public
    */
-  @ObjectType(`${edge.constructor.name.replace("Edge", "")}Connection`, {
+  @ObjectType(`${edge.name.replace("Edge", "")}Connection`, {
     isAbstract: true,
     description: `
     A Connection Type is returned as a result from the server
